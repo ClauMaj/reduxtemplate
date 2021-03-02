@@ -1,35 +1,24 @@
-import React from 'react'
-import {Link} from 'react-router-dom' // Link instead of <a> to not refresh page
+import React from "react";
+import { Link } from "react-router-dom";
+import { Navbar, Nav } from 'react-bootstrap';
 
 
 // regular navbar
-const Header = () => {
+const Header = (props) => {
     return (
         <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <Link className="navbar-brand" to="#">Navbar</Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
-                    <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/hooks">Hooks</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/classes">Classes</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link disabled" to="#">Disabled</Link>
-                </li>
-                </ul>
-            </div>
-        </nav>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar.Brand href="#home">To do list!</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="ml-auto">
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/hooks">Hooks</Nav.Link>
+                        <Nav.Link href="/classes">Classes</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         </>
-    )
-}
-
+    );
+};
 export default Header
